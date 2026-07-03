@@ -1,0 +1,217 @@
+.translator-container {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 모드 선택 */
+.mode-selector {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.mode-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mode-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.mode-btn.selected {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(0, 255, 102, 0.05);
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
+}
+
+/* 그리드 레이아웃 */
+.translator-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .translator-grid {
+    grid-template-columns: 1fr;
+  }
+  .arrow-divider {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+}
+
+.arrow-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--accent-color);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* 텍스트 영역 박스 */
+.area-box {
+  background: rgba(10, 12, 18, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.area-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.title-tag {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.header-actions {
+  margin-left: auto;
+}
+
+.toggle-font-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.toggle-font-btn.active {
+  background: var(--accent-color);
+  color: #0d0e12;
+  border-color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* 입력/출력 텍스트 본문 */
+.textarea-editor {
+  flex: 1;
+  background: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.output-content-wrapper {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  position: relative;
+}
+
+.output-status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  width: 90%;
+  text-align: center;
+}
+
+.error-text {
+  color: #ff5f56;
+}
+
+.translated-result-box {
+  font-size: 1.35rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+/* 결과창에 헌터어 폰트가 적용될 때 줄높이와 크기 미세 조정 */
+.translated-result-box.hunter-font {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+/* 카드 푸터 */
+.area-footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.clear-btn, .copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clear-btn:hover {
+  color: #ff5f56;
+}
+
+.copy-btn:hover {
+  color: var(--primary-color);
+}
+
+/* 안내 배너 */
+.font-info-banner {
+  background: rgba(255, 215, 0, 0.03);
+  border: 1px dashed rgba(255, 215, 0, 0.2);
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #e2c562;
+  line-height: 1.4;
+}
+
+.code-path {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  margin: 0 0.3rem;
+  font-family: monospace;
+}
